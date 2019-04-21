@@ -1,0 +1,385 @@
+*, *:after, *:before
+{
+	box-sizing: border-box;
+}
+
+
+:root
+{
+	/* darkorange is #ff8c00 */
+
+	--bg: #222;
+	--bg2: #444;
+	--bg2-border: #666;
+	--bg-msg: var(--drag-bg2-border);
+	--bg-msg-border: #c60;
+	--bg-special: darkorange;
+	--bg-hirb: var(--bg-special);
+	--bg-th: #333;
+	--icon-fill: #eee;
+
+	--special-div-divider: #888;
+	--bg-stats-selected: #ff7c00;
+
+	--color: #fff;
+	--color-link: #aaf;
+	--color-muted: #ddd;
+	--color-error: red;
+
+	--drag-bg: #bf4c00;
+	--drag-bg2: #cf5c10;
+	--drag-bg2-border: #ef7c30;
+	--drag-special-div-divider: var(--drag-bg2-border);
+	--drag-icon-fill: var(--icon-fill);
+}
+
+/* basic color fallbacks for browsers that don't understand css vars */
+body {background: #222; color : #fff;}
+.box {background-color: #444; border: 1px solid #666;}
+
+
+html, body
+{
+	min-height: 100%; margin: 0; padding: 0;
+}
+body
+{
+	font-family: Roboto, sans-serif;
+	font-size: 14px;
+	background-color: var(--bg);
+	color: var(--color);
+	text-align: center;
+}
+h1
+{
+	font-size: 4rem;
+	font-weight: 200;
+	font-stretch: extra-condensed;
+	margin-bottom: 3rem;
+	letter-spacing: 6px;
+	/*text-transform: uppercase;*/
+}
+table
+{
+	border-collapse: collapse;
+}
+a
+{
+	text-decoration: none;
+	color: var(--color-link);
+}
+a:hover, a:focus
+{
+	text-decoration: underline;
+}
+small, .small
+{
+	font-size: 70%;
+}
+#stats caption input[type=radio], #stats caption input[type=checkbox]
+{
+	position: relative;
+	bottom: -2px;
+	margin: 0 5px 0 10px;
+}
+
+textarea
+{
+	-moz-tab-size: 15;
+	-o-tab-size: 15;
+	tab-size: 20;
+}
+#nope a, #nope a:visited
+{
+	color: inherit;
+}
+
+#files-list
+{
+	color: var(--color-muted);
+	font-size: .9rem;
+	position: absolute;
+	top: 5px;
+	left: 8px;
+	text-align: left;
+}
+#version-info
+{
+	position: absolute;
+	right: 8px;
+	top: 5px;
+	font-size: .75rem;
+}
+
+#yup .box__icon
+{
+	margin: 1rem auto 2rem;
+	display: block;
+}
+#nope .box__icon
+{
+	margin: 1rem auto;
+}
+#nope p:last-child
+{
+	margin-bottom: -8px;
+}
+noscript
+{
+	display: block;
+	margin-top: 1rem;
+}
+
+
+.dragover body
+{
+	background-color: var(--drag-bg);
+}
+.dragover .box
+{
+	background-color: var(--drag-bg2);
+	border-color: var(--drag-bg2-border);
+}
+.dragover #explain
+{
+	border-color: var(--drag-bg2-border);
+}
+.dragover #stats th
+{
+	background: var(--drag-bg2);
+	border-color: var(--drag-bg2-border);
+}
+.dragover #stats td
+{
+	border-color: var(--drag-bg2-border);
+}
+.dragover .box__icon
+{
+	fill: var(--drag-icon-fill);
+}
+
+.box
+{
+	padding: 1.5rem 1rem 2.5rem;
+	max-width: 680px;
+	margin: 0 auto;
+	font-size: 1.2rem;
+	background-color: var(--bg2);
+	border: 1px solid var(--bg2-border);
+	position: relative;
+}
+
+
+.hirb,
+.important
+{
+	color: var(--bg-special);
+}
+.error
+{
+	color: var(--color-error);
+}
+.btnTiny
+{
+	font-size: 10px;
+}
+#msg
+{
+	position: fixed;
+	z-index: 1;
+	padding: 2rem 3rem;
+	background: var(--bg-msg);
+	border: 2px solid var(--bg-msg-border);
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 25rem;
+}
+
+
+#toggleHelpLink,
+#toggleHelpLink:visited
+{
+	margin-left: 1rem;
+	color: inherit;
+	position: absolute;
+	bottom: 5px;
+	right: 7px;
+}
+#explain
+{
+	font-size: .85rem;
+	margin-top: 1.5rem;
+	padding-top: .5rem;
+	border-top: 1px solid var(--special-div-divider);
+	line-height: 1.2rem;
+	cursor: pointer;
+}
+#explain p:last-child
+{
+	margin-bottom: 0;
+}
+
+#stats-links
+{
+	display: none;
+	position: fixed;
+	left: 10px;
+	top: 260px;
+	text-align: left;
+	color: var(--color-muted);
+}
+.have-data #stats-links
+{
+	display: block;
+}
+#stats-links a, #stats-links a:visited
+{
+	display: block;
+	margin-left: 5px;
+	color: var(--color-link);
+}
+
+#stats
+{
+	display: table;
+	margin: 0 auto;
+	font-size: 13px;
+}
+
+#stats section
+{
+	display: inline-block;
+	margin: 1rem .5rem 0;
+	padding: 1rem 0 0;
+	vertical-align: top;
+}
+#stats caption
+{
+	font-weight: bold;
+	font-size: 1.25rem;
+	margin: 5px 0;
+	white-space: nowrap;
+}
+#stats caption .controls
+{
+	font-size: .8rem;
+	font-weight: normal;
+	margin: 8px;
+}
+th, td
+{
+	border: 1px solid var(--bg2);
+}
+th
+{
+	background: var(--bg-th);
+}
+#irUsageTable th,
+#irUsageTable td
+{
+	padding: 4px 3px;
+}
+#irUsageTable .used
+{
+	cursor: pointer;
+}
+#irUsageTable.hide-unused .unused
+{
+	display: none;
+}
+
+#presetIRsTable th,
+#presetIRsTable td
+{
+	padding: 4px 6px;
+	text-align: left;
+}
+#stats .irs-list
+{
+	max-width: 12rem;
+}
+#irUsageContainer
+{
+	padding-right: 1.5rem;
+}
+#stats .center
+{
+	text-align: center !important;
+}
+
+
+#stats tr.selected
+{
+	background: var(--bg-stats-selected);
+}
+
+footer
+{
+	opacity: .8;
+	font-size: .8rem;
+	margin-top: 40px;
+	line-height: 1.1rem;
+}
+
+footer a, footer a:visited
+{
+	color: var(--color-link);
+}
+
+.box-inner label div
+{
+	margin-top: 15px;
+}
+
+.copyBtn
+{
+	margin-left: 1rem;
+	position: relative;
+	top: -3px;
+}
+#copy-div
+{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #666;
+	opacity: .95;
+}
+#copy-div-inner
+{
+	position: absolute;
+	top: 1rem;
+	bottom: 1rem;
+	left: 1rem;
+	right: 1rem;
+	background: #ddd;
+	padding-bottom: 1.5rem;
+	color: #000;
+	font-weight: bold; /* matches btn height */
+}
+#copy-div-header
+{
+	height: 1.5rem;
+	padding-top: 4px;
+}
+#copy-ta
+{
+	width: 100%;
+	height: 100%;
+	resize: none;
+	white-space: pre;
+}
+#copy-close-btn
+{
+	position: absolute;
+	top: -2px;
+	right: 0;
+	border: 0;
+	font-weight: bold;
+	font-size: 1.5rem;
+	background: none;
+}

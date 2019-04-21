@@ -1,0 +1,14 @@
+MAYBE:
+checkboxes in ir list header cells to filter presets by snapshot
+upload IR names file
+get rid of the empty [0] elem in irUsage
+
+make it more testable
+	support analyzing individual preset files
+	ideally with an "expected result" field, or something
+
+resolve whether IR assigned to block should count if snapshots are used
+
+use setlist names from files instead of filename, maybe
+	things is, would be nice to show cols in that order, not that easy
+	also, actual names might not be unique

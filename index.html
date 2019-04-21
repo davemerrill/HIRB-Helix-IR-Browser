@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>HIRB &bull; Helix IR Browser</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link rel="stylesheet" href="main.css" />
+	<style type="text/css" id="presetIRsFilterCSS"></style>
+</head>
+
+<body>
+
+<div class="container" role="main">
+	<h1><span class="hirb">H</span>elix <span class="hirb">IR B</span>rowser</h1>
+	<aside id="files-list-container"></aside>
+	<aside id="version-info">Updated 2018-07-24 6:00 AM</aside><!-- set by js anyway -->
+	<div id="stats-links">
+		Links:<br>
+		<a href="#top">Top</a>
+		<a href="#irUsageContainer">IR Usage</a>
+		<a href="#presetIRsContainer">Preset IRs</a>
+	</div>
+
+	<h3 id="msg" style="display: none;"></h3>
+
+
+	<div id="form" class="box">
+		<div class="box-inner">
+			<noscript class="important">
+				Sorry, Javascript is required to use this page.
+			</noscript>
+
+			<div id="nope" class="important">
+				<img class="box__icon" src="img/stop.png" height="128" width="128"/>
+				<p>Sorry, your browser doesn't support drag and drop or other features this page requires.</p>
+				<p>
+					Try a current version of <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>,
+					<a href="https://www.mozilla.org/firefox/" target="_blank">Firefox</a>,
+					or <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" target="_blank">Edge</a>.
+				</p>
+			</div>
+
+			<div id="yup" style="display: none;">
+				<img class="box__icon" src="img/upload-settings.png" height="128" width="128"/>
+
+				Drop up to 8 Helix setlist files onto this page
+				<small><a id="toggleHelpLink" href="javascript: toggleHelp()">MORE INFO</a></small>
+				<div class="small"><span class="important">IMPORTANT:</span> They should all use the same set of IRs.</div>
+				<!--<p class="small">
+					This page requires a recent mainstream browser.<br>
+					It tries to detect the features it needs, but if it let you in and didn't work, let me know.
+				</p>-->
+
+				<div id="explain" style="display: none;" onclick="toggleHelp()" title="Click to close">
+					<p>
+						IRs are listed on the left, by slot number.<br>
+						For each one, the number of presets in each setlist that use it and the total number of uses are shown.
+					</p>
+					<p>
+						Presets with IRs are listed on the right.<br>
+						The two lists stack vertically on narrower screens.
+					</p>
+					<p>
+						Click anywhere in a row in the IRs list to select or deselect it.<br>
+						That filters the presets list to show only ones that use at least one of the selected IRs.<br>
+						Ctrl-click to deselect all other IRs, so only the one you click is selected.
+					</p>
+					<p>
+						Click the Copy button in either list to view the data in tab-tab-rtn format.<br>
+						Copy and paste into a spreadsheet for further analysis or manipulation.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section id="stats" style="display: none;">
+		<section id="irUsageContainer"></section>
+		<section id="presetIRsContainer"></section>
+	</section>
+
+	<footer>
+		<p>
+			&copy; <a href="http://dave-merrill.com/">2018-2019 Dave Merrill</a> &nbsp; &bull; &nbsp; MIT License &nbsp; &bull; &nbsp; <a href="" title="It's just the files you're looking at anyway...">GitHub</a><br>
+			File handling UI modified from <a href="https://osvaldas.info/" target="_blank">Osvaldas Valutis</a>'s <a href="https://css-tricks.com/drag-and-drop-file-uploading/" target="_blank">article</a> at CSS Tricks<br>
+			Javascript ZIP utilities by <a href="http://nodeca.github.io/pako/" target="_blank">pako</a><br>
+			Icons by <a href="http://www.freepik.com" title="Freepik" target="_blank">Freepik</a> and <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons" target="_blank">Those Icons</a>,
+			from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a>, licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+		</p>
+	</footer>
+</div>
+
+<div id="copy-div" style="display: none;">
+	<div id="copy-div-inner">
+		<div id="copy-div-header">
+			Copy the text you want, then click the close box in the upper right or press Escape to close this.
+			<button id="copy-close-btn" title="Close" onclick="copyUIHide()">&times;</button>
+		</div>
+		<textarea id="copy-ta" rows="10" cols="100" readonly></textarea><br>
+	</div>
+</div>
+
+<script src="lib/pako/pako_inflate.min.js"></script>
+
+<script src="main.js"></script>
+
+</body>
+</html>
