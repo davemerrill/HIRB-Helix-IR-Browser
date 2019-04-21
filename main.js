@@ -1,10 +1,5 @@
 'use strict';
 
-window.addEventListener('load', function(e)
-{
-	document.getElementById('version-info').innerHTML = 'Updated ' + document.lastModified;
-});
-
 // feature detection for drag&drop upload
 const isAdvancedUpload = function()
 	{
