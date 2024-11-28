@@ -21,7 +21,7 @@ Use your operating system's usual maneuvers to open it in a different browser if
 Chrome probably runs the quickest, but it's pretty fast anyway.
 
 CREDITS
-Written by and (c) 2018-2019 Dave Merrill, distributed under the MIT License
+Written by and (c) 2018 and later Dave Merrill, distributed under the MIT License
   http://dave-merrill.com/
 File handling UI modified from Osvaldas Valutis's article at CSS Tricks
   https://css-tricks.com/drag-and-drop-file-uploading
